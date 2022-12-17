@@ -4,6 +4,19 @@ import java.util.Scanner;
 
 //Start Loan Parent Class
 abstract class Loan {
+	// Variable
+	private float simpleinterest;
+	
+	// gatter for simpleinterest
+	public float getSimpleinterest() {
+		return simpleinterest;
+	}
+	
+	// setter for simpleinterest
+	public void setSimpleinterest(float simpleinterest) {
+		this.simpleinterest = simpleinterest;
+	}
+	
 	abstract void whichLoan(); // Shows the name of the Loan
 	abstract void input(); // Gets the input
 	abstract void display(); // Display the Simple Interest Amount
@@ -12,7 +25,7 @@ abstract class Loan {
 
 //Start Personal Loan Class
 class Personal extends Loan {
-	private float amount, time, simpleinterest;
+	private float amount, time;
 	static final float rateofinterest;
 	
 	static {
@@ -36,21 +49,21 @@ class Personal extends Loan {
 	}
 	
 	// Calculate method for the Personal Loan's Simple Interest
-	float calculateSimpleInterest() {
-		simpleinterest = (amount * time * rateofinterest) / 100;
-		return simpleinterest;
+	void calculateSimpleInterest() {
+		// calculate the simple interest of Personal Loan & set it using setter method
+		setSimpleinterest((amount * time * rateofinterest) / 100);
 	}
 	
 	// Display method for the Personal Loan's Simple Interest
 	void display() {
-		System.out.print("Simple Interest: " + calculateSimpleInterest());
+		// display the simple interest of Personal Loan using getter method
+		System.out.print("Simple Interest: " + getSimpleinterest());
 	}
 }
-//End Personal Loan Class
 
 //Start Home Loan Class
 class Home extends Loan {
-	private float amount, time, simpleinterest;
+	private float amount, time;
 	private int district;
 	private static float rateofinterest;
 	
@@ -105,21 +118,21 @@ class Home extends Loan {
 	}
 	
 	// Calculate method for the Home Loan's Simple Interest 
-	float calculateSimpleInterest() {
-		simpleinterest = (amount * time * rateofinterest) / 100;
-		return simpleinterest;
+	void calculateSimpleInterest() {
+		// calculate the simple interest of Home loan & set is using setter method
+		setSimpleinterest((amount * time * rateofinterest) / 100);
 	}
 	
 	// Display method for the Home Loan's Simple Interest
 	void display() {
-		System.out.print("Simple Interest: " + calculateSimpleInterest());
+		// display the simple interest of Home loan using getter method
+		System.out.print("Simple Interest: " + getSimpleinterest());
 	}
 }
-//End Home Loan Class
 
 //Start Student Loan Class
 class Student extends Loan {
-	private float amount, time, simpleinterest;
+	private float amount, time;
 	private int degree;
 	private static float rateofinterest;
 	
@@ -169,21 +182,21 @@ class Student extends Loan {
 	}
 	
 	// Calculate method for the Student Loan's Simple Interest
-	float calculateSimpleInterest() {
-		simpleinterest = (amount * time * rateofinterest) / 100;
-		return simpleinterest;
+	void calculateSimpleInterest() {
+		// calculate the simple interest of Student loan & set it using setter method
+		setSimpleinterest((amount * time * rateofinterest) / 100);
 	}
 	
 	// Display method for the Student Loan's Simple Interest
 	void display() {
-		System.out.print("Simple Interest: " + calculateSimpleInterest());
+		// display the simple interest of Student loan using getter method
+		System.out.print("Simple Interest: " + getSimpleinterest());
 	}
 }
-//End Student Loan Class
 
 //Start Business Loan Class
 class Business extends Loan {
-	private float amount, time, simpleinterest;
+	private float amount, time;
 	static final float rateofinterest;
 	
 	static {
@@ -207,17 +220,17 @@ class Business extends Loan {
 	}
 	
 	// Calculate method for the Business Loan's Simple Interest
-	float calculateSimpleInterest() {
-		simpleinterest = (amount * time * rateofinterest) / 100;
-		return simpleinterest;
+	void calculateSimpleInterest() {
+		// calculate the simple interest of Business loan & set is using setter method
+		setSimpleinterest((amount * time * rateofinterest) / 100);
 	}
 	
 	// Display method for the Business Loan's Simple Interest
 	void display() {
-		System.out.print("Simple Interest: " + calculateSimpleInterest());
+		// display the simple interest of Business loan using getter method
+		System.out.print("Simple Interest: " + getSimpleinterest());
 	}
 }
-//End Business Loan Class
 
 //Manager For all the loans
 class Manager {
@@ -238,7 +251,7 @@ class Manager {
 		System.out.println("Welcome to KR Bank!"); // Welcome Greetings 
 		System.out.println();
 		System.out.println("Which Loan would you like to take!");
-		System.out.print("('1' for Personal, '2' for Home, '3' for Student, '4' for Business): ");
+		System.out.print("(1 for Personal, 2 for Home, 3 for Student, 4 for Business): ");
 		int input = scn.nextInt(); // Get input for which type of lone
 		System.out.println();
 		
