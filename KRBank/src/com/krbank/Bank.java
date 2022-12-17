@@ -19,6 +19,7 @@ abstract class Loan {
 	
 	abstract void whichLoan(); // Shows the name of the Loan
 	abstract void input(); // Gets the input
+	abstract void calculateSimpleInterest();
 	abstract void display(); // Display the Simple Interest Amount
 }
 //End Loan Parent Class
@@ -57,7 +58,7 @@ class Personal extends Loan {
 	// Display method for the Personal Loan's Simple Interest
 	void display() {
 		// display the simple interest of Personal Loan using getter method
-		System.out.print("Simple Interest: " + getSimpleinterest());
+		System.out.println("Simple Interest: " + getSimpleinterest());
 	}
 }
 
@@ -242,6 +243,7 @@ class Manager {
 	void permit(Loan L) {
 		L.whichLoan();
 		L.input();
+		L.calculateSimpleInterest();
 		L.display();
 	}
 	
